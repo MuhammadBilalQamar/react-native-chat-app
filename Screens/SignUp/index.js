@@ -98,7 +98,8 @@ export default class Signup extends Component {
                         pass,
                         date,
                         time,
-                        image: downloadURL
+                        image: downloadURL,
+                        uid: this.state.newUserUid
                     }).then(() => {
                         alert("Conguratulations You Have Been Successfully Registered,please login and continue");
                         this.setState({ spinner: false })
@@ -124,8 +125,8 @@ export default class Signup extends Component {
 
                 auth.createUserWithEmailAndPassword(email, pass).then((e) => {
                     // console.log("user uid******", e.user.uid);
-                    this.uploadImage(this.state.image);
                     this.setState({ newUserUid: e.user.uid })
+                    this.uploadImage(this.state.image);
 
                 }).catch((error) => {
                     var errorCode = error.code;

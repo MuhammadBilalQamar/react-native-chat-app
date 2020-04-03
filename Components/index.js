@@ -1,4 +1,5 @@
+import ListUserItem from "./ListUserItem/index"
 
-import Head from "../Components/Header/index";
-
-module.exports = { Head }
+export {
+    ListUserItem
+}

@@ -8,7 +8,8 @@ import { Image } from "react-native";
 import Home from "./Screens/Home/index";
 import Login from "./Screens/Login/index";
 import SignUp from "./Screens/SignUp/index";
-
+import Profile from "./Screens/Profile/index";
+import RenderUsers from "./Screens/RenderUsers/index"
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -21,46 +22,20 @@ const AppNavigator = () => {
 
     <NavigationContainer >
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="SignUp"
         headerMode="none"
       >
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Home" component={Home} />
-        {/* <Stack.Screen name="Profile" /> */}
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="RenderUsers" component={RenderUsers} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 
-// const AppNavigator = createStackNavigator(
-//   {
-
-//     Home: {
-//       screen: Home,
-//       navigationOptions: {
-//         tabBarLabel: "Home",
-//         // color:"#1A5CAD",
-//         //tabBarActiveTintColor
-//         tabBarIcon: ({ tintColor }) => (
-//           <Icon name="ios-home" size={20} style={{ color: "white" }} />
-//         )
-//       }
-//     },
-
-//   },
-//   {
-//     // tabBarOptions: {
-//     //   activeTintColor: "white",
-//     //   inactiveTintColor: 'white',
-//     //   style: {
-//     //     backgroundColor: 'red',
-//     //   },
-//     // },
-
-//     initialRouteName: "Home"
-//   }
-// );
 export default AppNavigator;
 // export default createAppContainer(AppNavigator);

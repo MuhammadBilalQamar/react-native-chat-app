@@ -13,7 +13,7 @@ export default class Head extends Component {
     render() {
         return (
             <Container>
-                <Header style={{ marginTop: 0, backgroundColor: BaseColor.primaryColor, ...this.props.style }}>
+                <Header hasTabs style={{ marginTop: 0, backgroundColor: BaseColor.primaryColor, ...this.props.style }}>
                     <Left>
                         <Button transparent onPress={() => this.props.leftBtnPress}>
                             <Icon name={this.props.leftIconName} />
