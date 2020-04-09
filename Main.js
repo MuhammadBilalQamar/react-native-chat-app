@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AppNavigator from './Navigation'
-import { Root } from "native-base";
+import { Root, Form } from "native-base";
 
 class Main extends Component {
 

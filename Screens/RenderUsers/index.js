@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Container, Content, Card, List, CardItem, Button, Item, Icon, Toast, Input, Text, View, Thumbnail } from 'native-base';
 import { BaseColor, auth, db, storage } from '../../config/index';
 import { AsyncStorage, TouchableOpacity, StyleSheet } from 'react-native';
-import { ListUserItem } from '../../Components/index'
+import { ListUserItem } from '../../Components/index';
+
 export default class RenderUsers extends Component {
     static navigationOptions = {
         header: null,
@@ -12,36 +13,22 @@ export default class RenderUsers extends Component {
         this.state = {
             user: null,
             uid: null,
-            allUsers: []
+            allUsers: [],
+            spinner: false
         };
 
     }
 
     async componentDidMount() {
-        this.fetchUsers()
-
-        // this.setState({ allUsers: Users });
-
-    }
-
-
-
-    async fetchUsers() {
-        let { allUsers } = this.state;
-        let tempUsers;
-        let dbRef = db.ref('Users/');
-        dbRef.on('value', (users) => {
-            tempUsers = users.val();
-        });
-        if (tempUsers) {
-            for (let [key, value] of Object.entries(tempUsers)) {
-                // console.log(value);
-                allUsers.push(value)
-            }
-            this.setState({ allUsers })
+        // this.fetchUsers()
+        // console.log("render user props------", this.props);
+        if (this.props.allUsers) {
+            this.setState({ allUsers: this.props.allUsers });
         }
 
     }
+
+
 
     render() {
         let { allUsers } = this.state;
@@ -59,7 +46,7 @@ export default class RenderUsers extends Component {
                                     userName={item.name}
                                     joinedDate={item.date}
                                     inviteBtnClicked={() => { console.log(i) }}
-
+                                    isInviteShow={true}
                                 />
                             )
                         })}

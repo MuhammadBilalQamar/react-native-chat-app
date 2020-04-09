@@ -1,0 +1,5 @@
+invitations-> uid->{obj}{obj}{obj}
+  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+
+chats/uid/chatId{date,text}

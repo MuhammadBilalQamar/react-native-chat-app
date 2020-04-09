@@ -27,17 +27,23 @@ export default class Profile extends Component {
     }
 
     async componentDidMount() {
-        let User;
-        User = {
-            date: "3/4/2020",
-            email: "bilal@gmail.com",
-            image: "https://firebasestorage.googleapis.com/v0/b/chat-app-react-native-ee70d.appspot.com/o/Users%2FyEosYWIFkXUvMoQ5OEmTU3t3GdQ2?alt=media&token=20c7a7c7-5604-42f4-b68c-f5554b1ce08c",
-            name: "Muhammad Bilal Qamar",
-            pass: "bilal@gmail.com",
-            time: "2:17:39",
-            uid: "yEosYWIFkXUvMoQ5OEmTU3t3GdQ2",
+        console.log(this.props.currentUser)
+
+        if (this.props.currentUser) {
+            let { currentUser } = this.props;
+            this.setState({ user: currentUser, userNewName: currentUser.name, image: currentUser.image, uid: currentUser.uid })
         }
-        this.setState({ user: User, userNewName: User.name, image: User.image, uid: User.uid });
+        // let User;
+        // User = {
+        //     date: "3/4/2020",
+        //     email: "bilal@gmail.com",
+        //     image: "https://firebasestorage.googleapis.com/v0/b/chat-app-react-native-ee70d.appspot.com/o/Users%2FyEosYWIFkXUvMoQ5OEmTU3t3GdQ2?alt=media&token=20c7a7c7-5604-42f4-b68c-f5554b1ce08c",
+        //     name: "Muhammad Bilal Qamar",
+        //     pass: "bilal@gmail.com",
+        //     time: "2:17:39",
+        //     uid: "yEosYWIFkXUvMoQ5OEmTU3t3GdQ2",
+        // }
+        // this.setState({ user: User, userNewName: User.name, image: User.image, uid: User.uid });
 
     }
 

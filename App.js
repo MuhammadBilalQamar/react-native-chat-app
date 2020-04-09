@@ -4,6 +4,12 @@ import { Container, Text } from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import Main from './Main';
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux';
+import reducer from './redux/reducers/reducer';
+import thunk from "redux-thunk";
+const middlewares = [thunk];
+const store = createStore(reducer, applyMiddleware(...middlewares));
 
 export default class App extends React.Component {
   constructor(props) {
@@ -29,7 +35,9 @@ export default class App extends React.Component {
     console.disableYellowBox = true;
 
     return (
-      <Main />
+      <Provider store={store}>
+        <Main />
+      </Provider>
 
     );
   }

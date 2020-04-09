@@ -156,8 +156,11 @@ export default class Signup extends Component {
                     textContent={` wait image is uploading ${this.state.uploadPercentage}%`}
                     textStyle={styles.spinnerTextStyle}
                 />
+
                 <Content style={{ backgroundColor: BaseColor.fieldColor }}>
+
                     <Form style={{ marginTop: 150, alignItems: 'center' }}>
+
                         <H1 style={{ fontStyle: "italic", fontSize: 30, fontWeight: "bold", color: BaseColor.darkPrimaryColor }}>SignUp</H1>
                         <View style={{ width: "100%", paddingHorizontal: 25 }}>
                             <Item floatingLabel>
@@ -221,6 +224,7 @@ export default class Signup extends Component {
                             </Button>
                             <Text style={{ padding: 15, fontSize: 18 }}> If you already have an account: <H3 onPress={() => { this.navigateToLogin() }} style={{ color: BaseColor.primaryColor, textDecorationLine: "underline" }} >Login</H3> </Text>
                         </View>
+
                     </Form>
                 </Content>
             </Container>
