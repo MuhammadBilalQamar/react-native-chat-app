@@ -1,1 +1,4 @@
-# react-native-chat-app
+## Author :-
+*Muhammad Bilal* 
+
+
