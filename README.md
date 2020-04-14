@@ -7,6 +7,7 @@
 3. Firebase Database
 4. Firebase Authentication
 5. Firebase Storage 
+5. Firebase Push Notifications 
 
 # Screen Shots
 
