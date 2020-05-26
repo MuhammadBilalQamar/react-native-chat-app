@@ -77,7 +77,7 @@ class Home extends Component {
                         <MyChats chatHomeNavProps={this.props} />
                     </Tab>
                     <Tab heading={<TabHeading style={{ backgroundColor: BaseColor.primaryColor }}><Icon name="paper" /><Text>All Users</Text></TabHeading>}>
-                        {this.props.allUsers && <RenderUsers currentUser={"hey"} allUsers={this.props.allUsers} />}
+                        {this.props.allUsers && <RenderUsers currentUser={this.props.currentUser} allUsers={this.props.allUsers} navigate={this.props.navigation} />}
                     </Tab>
                     <Tab heading={<TabHeading style={{ backgroundColor: BaseColor.primaryColor }}><Icon name="person" /><Text>Profile</Text></TabHeading>}>
                         {this.props.currentUser && <Profile currentUser={this.props.currentUser} />}

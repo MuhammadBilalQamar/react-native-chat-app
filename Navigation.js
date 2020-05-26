@@ -24,7 +24,7 @@ const AppNavigator = () => {
 
     <NavigationContainer >
       <Stack.Navigator
-        initialRouteName="ChatRoom"
+        initialRouteName="Login"
         headerMode="none"
       >
         <Stack.Screen name="Login" component={Login} />

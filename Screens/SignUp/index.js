@@ -199,7 +199,7 @@ export default class Signup extends Component {
                             </Item>
                             {!image &&
                                 <TouchableOpacity onPress={this._pickImage} style={{ textAlign: "center", alignItems: "center" }}>
-                                    <Thumbnail source={require('../../assets/images/my_avatar.png')} style={{ marginTop: 20, width: 100, height: 100 }} />
+                                    <Thumbnail source={require('../../assets/images/av1.jpg')} style={{ marginTop: 20, width: 100, height: 100 }} />
                                     <Text style={{ fontSize: 18, color: BaseColor.primaryColor }}>Pick Image</Text>
 
                                     {/* {image &&

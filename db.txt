@@ -1,0 +1,19 @@
+chats / currentUid/ chat_id
+
+
+chat Array of object=>
+
+[{
+  name: currentUser.name,
+  message: messageText,
+  date,
+  uid: currentUser.uid,
+  currentChatId
+},
+{
+  name: currentUser.name,
+  message: messageText,
+  date,
+  uid: currentUser.uid,
+  currentChatId
+}]

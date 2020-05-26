@@ -12,6 +12,8 @@ export default class ListUserItem extends Component {
     render() {
         return (
             // <TouchableOpacity onPress={this.props.listItemClicked}>
+            <TouchableOpacity onPress={this.props.userPressed}>
+
                 <ListItem thumbnail>
                     <Left>
                         <Thumbnail square source={{ uri: this.props.imageUri }} />
@@ -21,15 +23,12 @@ export default class ListUserItem extends Component {
                         <Text note numberOfLines={1}>{`Joined on ${this.props.joinedDate}`}</Text>
                     </Body>
                     <Right>
-                        <TouchableOpacity onPress={this.props.inviteBtnClicked}>
-
-                            <Button transparent>
-                                <Text>Invite</Text>
-                            </Button>
-                        </TouchableOpacity>
+                        {/* <Button transparent>
+                            <Text>Invite</Text>
+                        </Button> */}
                     </Right>
                 </ListItem>
-            // </TouchableOpacity>
+            </TouchableOpacity>
         );
     }
 }
