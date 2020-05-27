@@ -17,3 +17,6 @@ chat Array of object=>
   uid: currentUser.uid,
   currentChatId
 }]
+
+
+xhats/uid/conversations

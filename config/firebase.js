@@ -1,4 +1,8 @@
 import Firebase from 'firebase';
+import * as Analytics from 'expo-firebase-analytics';
+import App from '../App';
+
+// IF YOU WANT TO ADD YOUR FIREBASE PROJECT KINDLY REPLACE  THIS CONFIG WITH YOUR PROJECT ALSO ADD THIS SCRIPT IN App.json FILE
 let config = {
   // its private :D :p
   apiKey: "AIzaSyCi8xMU8EqFV6m2bu7t6SfXc7DGmcbTDZA",
@@ -15,3 +19,5 @@ let app = Firebase.initializeApp(config);
 export const db = app.database();
 export const auth = app.auth();
 export const storage = app.storage();
+export const analytics = Analytics;
+//SEE WORKING OF  CRASHLYTICS IN ROOT DIRECTORY FOLDER NAMED Firebase-Crashlytics

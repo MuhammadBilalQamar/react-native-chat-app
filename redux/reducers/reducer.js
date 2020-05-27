@@ -2,11 +2,15 @@ const iState = {
     name: "Bilal",
     currentUser: null,
     uid: null,
-    allUsers: []
+    allUsers: [],
+    color: "#E5634D",
+    darkColor: "#C31C0D"
+
 }
 
 
 const reducer = (state = iState, action) => {
+    // console.log("payload-------------", action.payload)
     switch (action.type) {
         case "UPDATE_USER":
             return {
@@ -18,6 +22,11 @@ const reducer = (state = iState, action) => {
             return {
                 ...state,
                 allUsers: action.payload
+            }
+        case "FETCH_COLORS":
+            return {
+                ...state,
+                color: action.payload
             }
             // code block
             break;

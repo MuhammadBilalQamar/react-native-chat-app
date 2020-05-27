@@ -8,6 +8,8 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux';
 import reducer from './redux/reducers/reducer';
 import thunk from "redux-thunk";
+// import crashlytics from '@react-native-firebase/crashlytics';
+
 const middlewares = [thunk];
 const store = createStore(reducer, applyMiddleware(...middlewares));
 
@@ -37,6 +39,8 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <Main />
+        {/* <Button title="Test Crash" onPress={() => crashlytics().crash()} /> */}
+
       </Provider>
 
     );

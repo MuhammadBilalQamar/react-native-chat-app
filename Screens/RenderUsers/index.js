@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Card, List, CardItem, Button, Item, Icon, Toast, Input, Text, View, Thumbnail } from 'native-base';
-import { BaseColor, auth, db, storage } from '../../config/index';
-import { AsyncStorage, TouchableOpacity, StyleSheet } from 'react-native';
+import { Container, Content, List } from 'native-base';
 import { ListUserItem } from '../../Components/index';
 
 export default class RenderUsers extends Component {
@@ -32,9 +30,7 @@ export default class RenderUsers extends Component {
         let { currentUser, navigate } = this.props;
         let targetUser = allUsers[i];
         navigate.navigate("ChatRoom", { currentUser, targetUser })
-
         // console.log("all userss me hy -----------",currentUser)
-
     }
 
     async removeDuplicates(originalArray, prop) {
@@ -57,7 +53,6 @@ export default class RenderUsers extends Component {
             <Container style={{ marginTop: 30 }}>
                 <Content >
                     <List>
-
                         {allUsers.map((item, i) => {
                             return (
                                 <ListUserItem
@@ -70,17 +65,6 @@ export default class RenderUsers extends Component {
                                 />
                             )
                         })}
-                        {/* <ListUserItem
-                            imageUri={this.state.user.image}
-                            userName={this.state.user.name}
-                            joinedDate={this.state.user.date}
-                            inviteBtnClicked={() => { console.log("invite clicked") }}
-
-                        />
-                        <ListUserItem />
-                        <ListUserItem />
-                        <ListUserItem />
-                        <ListUserItem /> */}
                     </List>
                 </Content>
             </Container >

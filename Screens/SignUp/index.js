@@ -6,6 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import Spinner from 'react-native-loading-spinner-overlay';
+import * as Analytics from 'expo-firebase-analytics';
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -103,6 +104,12 @@ export default class Signup extends Component {
                     }).then(() => {
                         alert("Conguratulations You Have Been Successfully Registered,please login and continue");
                         this.setState({ spinner: false })
+                        Analytics.logEvent('SignUp', {
+                            userId: uid,
+                            screen: 'SignUp',
+                            purpose: 'A new user signUp in our app',
+                            userEmail: email
+                        });
                         this.props.navigation.navigate("Login")
                     });
 

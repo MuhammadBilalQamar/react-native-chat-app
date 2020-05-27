@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Container, Header, Left, Right, Body, Title, Thumbnail, Item, Icon, Input, Subtitle, Footer, FooterTab } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
+import { Grid } from 'react-native-easy-grid';
 import { KeyboardAvoidingView, ScrollView, Keyboard, TouchableOpacity, Platform, Image, TouchableWithoutFeedback, StyleSheet } from "react-native";
-import { BaseColor, db, auth } from '../../config/index';
-import { MessageItem } from '../../Components/index'
+import { BaseColor, db } from '../../config/index';
+import { MessageItem } from '../../Components/index';
+import * as Analytics from 'expo-firebase-analytics';
+
 export default class ChatRoom extends Component {
     static navigationOptions = {
         header: null,
@@ -23,35 +25,18 @@ export default class ChatRoom extends Component {
     };
 
     async componentDidMount() {
-        // let currentUser = {
-        //     date: "26/5/2020",
-        //     email: "hadeed@gmail.com",
-        //     image: "https://firebasestorage.googleapis.com/v0/b/chat-app-react-native-ee70d.appspot.com/o/Users%2F9Zq7xSgMNHcmLxXtd9UMcQSKc7r1?alt=media&token=e50eda72-9f85-4ec9-937c-369e383c357b",
-        //     name: "Hadeed Abid hussain",
-        //     pass: "1234567",
-        //     time: "21: 23: 46",
-        //     uid: "9Zq7xSgMNHcmLxXtd9UMcQSKc7r1"
-        // }
-        // let targetUser = {
-        //     date: "3/4/2020",
-        //     email: "bilal@gmail.com",
-        //     image: "https://firebasestorage.googleapis.com/v0/b/chat-app-react-native-ee70d.appspot.com/o/Users%2FyEosYWIFkXUvMoQ5OEmTU3t3GdQ2?alt=media&token=88c218ba-98e7-4e9e-a941-01ce652c0c29",
-        //     name: "Muhammad Bilal  Qamar",
-        //     pass: "bilal@gmail.com",
-        //     time: "2:17:39",
-        //     uid: "yEosYWIFkXUvMoQ5OEmTU3t3GdQ2"
-        // }
-        console.log(this.props.route.params)
+
         let { currentUser, targetUser } = this.props.route.params;
         this.setState({ currentUser, targetUser }, () => {
             this.decideCurrentChatId();
             this.fetchMessage();
         });
-
-        // this.setState({
-        //     user: this.props.navigation.state.params.userData
-        // })
-        // console.log("particular user props___________________", this.props.navigation.state.params.userData)
+        Analytics.logEvent('Chat', {
+            targetUser,
+            currentUser,
+            screen: 'ChatRoom',
+            purpose: 'track which two users are chatting',
+        });
     }
     getDate(date = new Date()) {
         let year = date.getFullYear();

@@ -1,9 +1,3 @@
-// export const fetchUsers = (users) => {
-//     return {
-//         tppe: "FETCH_USERS",
-//         payload: users
-//     }
-// }
 import { db } from "../../config/index"
 
 const fetchUsers = (currentUserUid) => {

@@ -42,3 +42,4 @@ const AppNavigator = () => {
 
 export default AppNavigator;
 // export default createAppContainer(AppNavigator);
+// @react-native-community/masked-view

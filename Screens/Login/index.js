@@ -4,7 +4,8 @@ import { BaseColor, auth, db } from '../../config/index';
 import { AsyncStorage, StyleSheet, KeyboardAvoidingView, Keyboard, Platform } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { connect } from "react-redux";
-// import fetchUsers from "../../redux/actions/fetchUsers"
+import * as Analytics from 'expo-firebase-analytics';
+import fetchColors from "../../redux/actions/fetchColors";
 
 class Login extends Component {
     static navigationOptions = {
@@ -21,7 +22,7 @@ class Login extends Component {
     }
 
     componentDidMount() {
-
+        this.props.fetchColors()
         // this._removeData('uid')
         // this._retrieveData('uid').then((uid) => {
         //     if (uid) {
@@ -37,6 +38,7 @@ class Login extends Component {
     }
 
     Login = async () => {
+
         let { email, pass, uid } = this.state;
         this.setState({ spinner: true })
         auth.signInWithEmailAndPassword(email, pass)
@@ -51,6 +53,13 @@ class Login extends Component {
                         this._storeData(uid);
                         this.setState({ spinner: false })
                         this.props.updateUser(currentUser);
+                        // onPressLoginButton(uid, email);
+                        Analytics.logEvent('Login', {
+                            userId: uid,
+                            screen: 'Login',
+                            purpose: 'login to app',
+                            userEmail: email
+                        });
                         this.props.navigation.navigate("Home")
                     }
                     else {
@@ -105,8 +114,13 @@ class Login extends Component {
         }
     }
 
+    singInWithFb() {
+        console.log(this.props)
+    }
+
     render() {
         // console.log(this.props)
+        BaseColor.primaryColor = this.props.color;
         return (
             <Container>
                 {/* <Header /> */}
@@ -145,7 +159,7 @@ class Login extends Component {
                                 <Button full primary style={{ backgroundColor: BaseColor.primaryColor, padding: 10, marginTop: 45 }} onPress={() => { this.Login() }}>
                                     <Text> Login </Text>
                                 </Button>
-                                <Button full primary style={{ backgroundColor: BaseColor.primaryColor, padding: 10, marginTop: 45 }} onPress={() => { this._removeData(this.state.email) }}>
+                                <Button full primary style={{ backgroundColor: BaseColor.primaryColor, padding: 10, marginTop: 45 }} onPress={() => { this.singInWithFb() }}>
                                     <Text> SignIn with facebook </Text>
                                 </Button>
                                 <Text style={{ padding: 15, fontSize: 18 }}> If you'r new signup from <H3 onPress={() => { this.navigateToSignup() }} style={{ color: BaseColor.primaryColor, textDecorationLine: "underline", }} >Here</H3> </Text>
@@ -185,15 +199,19 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-    return {
-        // name: state.name,
+    console.log("login statel------------", state)
+    try {
+        return {
+            color: state.color ? state.color : "#E5634D",
+        }
+    } catch (error) {
+
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         updateUser: (user) => { dispatch({ type: "UPDATE_USER", payload: user }) },
-        // fetchUsers: (id) => { dispatch(fetchUsers(id)) },
-
+        fetchColors: () => { dispatch(fetchColors()) },
     }
 }
 

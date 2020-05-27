@@ -1,5 +1,4 @@
-
-export const BaseColor = {
+export let BaseColor = {
     primaryColor: "#E5634D",
     darkPrimaryColor: "#C31C0D",
     lightPrimaryColor: "#FF8A65",
@@ -14,3 +13,4 @@ export const BaseColor = {
     yellowColor: "#FDC60A",
     navyBlue: "#3C5A99"
 };
+

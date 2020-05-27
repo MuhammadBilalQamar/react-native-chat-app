@@ -52,7 +52,7 @@ export default class MyChats extends Component {
             <Container style={{ marginTop: 10 }}>
                 <List>
 
-                    {userDetail.map((item, i) => {
+                    {/* {userDetail.map((item, i) => {
                         return (
                             <MyChatItem
                                 key={i}
@@ -62,7 +62,7 @@ export default class MyChats extends Component {
                                 listItemClicked={() => { console.log(i) }}
                             />
                         )
-                    })}
+                    })} */}
 
                 </List>
             </Container>
