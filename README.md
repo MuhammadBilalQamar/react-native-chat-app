@@ -7,7 +7,9 @@
 3. Firebase Database
 4. Firebase Authentication
 5. Firebase Storage 
-5. Firebase Push Notifications 
+6. Firebase Analytics 
+7. Firebase Crashlytics
+8. Remote Configuration(for changing theme through firebase )
 
 # Screen Shots
 
