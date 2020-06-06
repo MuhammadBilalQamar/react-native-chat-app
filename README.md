@@ -1,8 +1,8 @@
 # React Native Chat App
 ## Author :-
-*Muhammad Bilal Qamar*
-*Muhammad Asif Nawaz*
-*Hadeed Abid Hussain*
+1. *Muhammad Bilal Qamar*
+2. *Muhammad Asif Nawaz*
+3. *Hadeed Abid Hussain*
 
 #### Technologies
 1. React Native
